@@ -12,23 +12,23 @@
 
 (function () {
   document.body.onload = function () {
-    
-    //raise accessability:
-    new MutationObserver(() => {
-      try {
-        document.querySelectorAll(".role-member.checked").forEach((elem) => {
-          elem.nextSibling.nextSibling.click();
-          document
-            .querySelector(".col.dialog.dialog-warning")
-            .querySelectorAll("button")[1]
-            .click();
-        });
-      } catch (error) {
-        console.error("ERROR:", error);
-      }
-    }).observe(document.querySelector("#users-role-1.user-role-group"), {
-      childList: true,
-    });
+	  
+    //Raising accessability: 
+	  new MutationObserver(() => {
+	  try {
+	    document.querySelectorAll(".role-member.checked").forEach((elem) => {
+	      elem.nextSibling.nextSibling.click();
+	      document
+		.querySelector(".col.dialog.dialog-warning") 
+		.querySelectorAll("button")[1] 
+		.click(); 
+	    });
+	  } catch (error) {
+	    console.error("ERROR: ", error.message);
+	  }
+	}).observe(document.querySelector("#users-role-1.user-role-group"), {
+	  childList: true,
+	});
 
     //load images
     const getPictures = new Promise((resolve, reject) => {
